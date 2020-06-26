@@ -3,12 +3,27 @@
   "version": "1.0.0",
   "description": "A NodeJS API with Clean Architeture and TDD",
   "main": "index.js",
+  "author": "Daniel Gonçalves",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/minato31/clean-node-tdd"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Daniel Gonçalves",
-  "license": "MIT",
+  "lint-staged": {
+    "*.js": [
+      "standard --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "standard": "^14.3.4"
   }
 }
