@@ -1,0 +1,11 @@
+{
+  "name": "clean-node-tdd",
+  "version": "1.0.0",
+  "description": "A NodeJS API with Clean Architeture and TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
