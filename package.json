@@ -8,6 +8,11 @@
   "repository": {
     "url": "https://github.com/minato31/clean-node-tdd"
   },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
   "scripts": {
     "test": "jest"
   },
