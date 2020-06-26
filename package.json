@@ -14,7 +14,8 @@
     ]
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll",
+    "test:staged": "jest"
   },
   "devDependencies": {
     "husky": "^4.2.5",
