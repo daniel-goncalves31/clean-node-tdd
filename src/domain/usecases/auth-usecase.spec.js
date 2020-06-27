@@ -16,26 +16,34 @@ class AuthUseCase {
   }
 }
 
+const makeSut = () => {
+  class LoadUserByEmailRepositorySpy {
+    async load (email) {
+      this.email = email
+    }
+  }
+  const loadUserByEmailRepositorySpy = new LoadUserByEmailRepositorySpy()
+  const sut = new AuthUseCase(loadUserByEmailRepositorySpy)
+  return {
+    sut,
+    loadUserByEmailRepositorySpy
+  }
+}
+
 describe('UseCase', () => {
   test('should throw if no email is provided', () => {
-    const sut = new AuthUseCase()
+    const { sut } = makeSut()
     const promise = sut.auth()
     expect(promise).rejects.toThrow(new MissingParamError('email'))
   })
-  test('should throw if no password is provided', async () => {
-    const sut = new AuthUseCase()
+  test('should throw if no password is provided', () => {
+    const { sut } = makeSut()
     const email = 'any_email@email.com'
     const promise = sut.auth(email)
     expect(promise).rejects.toThrow(new MissingParamError('password'))
   })
   test('should call LoadUserByEmailRepository with correct email', async () => {
-    class LoadUserByEmailRepositorySpy {
-      async load (email) {
-        this.email = email
-      }
-    }
-    const loadUserByEmailRepositorySpy = new LoadUserByEmailRepositorySpy()
-    const sut = new AuthUseCase(loadUserByEmailRepositorySpy)
+    const { sut, loadUserByEmailRepositorySpy } = makeSut()
     const email = 'any_email@email.com'
     const password = 'any_password'
     await sut.auth(email, password)
