@@ -14,9 +14,11 @@
     ]
   },
   "scripts": {
-    "test": "jest --watch --silent --verbose --noStackTrace",
-    "test:staged": "jest --findRelatedTests --silent --noStackTrace",
-    "test:ci": "jest --coverage --silent --noStackTrace"
+    "test": "jest --silent --verbose --noStackTrace",
+    "test:unit": "npm run test -- --watch -c jest-unit-config.js",
+    "test:integration": "npm run test -- --watch -c jest-integration-config.js",
+    "test:staged": "npm run test -- --findRelatedTests",
+    "test:ci": "npm run test -- --coverage"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
