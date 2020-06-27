@@ -14,8 +14,8 @@
     ]
   },
   "scripts": {
-    "test": "jest --watchAll",
-    "test:staged": "jest"
+    "test": "jest --watch --silent --verbose --noStackTrace",
+    "test:staged": "jest --findRelatedTests --silent --noStackTrace"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
