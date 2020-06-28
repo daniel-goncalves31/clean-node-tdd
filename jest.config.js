@@ -5,5 +5,5 @@ module.exports = {
     '**/src/**/*.js'
   ],
   preset: '@shelf/jest-mongodb',
-  roots: ['src']
+  roots: ['src', '__mocks__']
 }
